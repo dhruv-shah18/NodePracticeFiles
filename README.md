@@ -29,4 +29,4 @@ A simple **Task Manager** application to help users organize their tasks and sch
 
    ```bash
    git clone https://github.com/dhruv-shah18/NodePracticeFiles.git
-   cd task-manager-app
+   cd NodePracticeFiles
