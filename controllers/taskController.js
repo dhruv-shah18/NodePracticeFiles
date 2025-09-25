@@ -3,7 +3,7 @@ const Task = require("../models/Task.model");
 // Example: get all tasks
 const getAllImpTask = async (req, res) => {
   try {
-    const result = await Task.find({ important: true });
+    const result = await Task.find({ important: true, createdBy : req?.user?._id });
     res.status(200).json({ result });
   } catch (err) {
     res.status(err.status).json({ msg: err.message });
@@ -12,7 +12,7 @@ const getAllImpTask = async (req, res) => {
 
 const getAllPriorityTask = async (req, res) => {
   try {
-    const result = await Task.find({ priority: "high" });
+    const result = await Task.find({ priority: "high", createdBy : req?.user?._id });
     res.status(200).json({ result });
   } catch (err) {
     res.status(err.status).json({ msg: err.message });
@@ -21,7 +21,7 @@ const getAllPriorityTask = async (req, res) => {
 
 const getAllCompletedTask = async (req, res) => {
   try {
-    const result = await Task.find({ completed: true });
+    const result = await Task.find({ completed: true, createdBy : req?.user?._id });
     res.status(200).json({ result });
   } catch (err) {
     res.status(500).json({ msg: err.message });
@@ -29,8 +29,9 @@ const getAllCompletedTask = async (req, res) => {
 };
 
 const getAllTasks = async (req, res) => {
+  const createdBy = req.user._id;
   try {
-    const result = await Task.find({}).populate({ path: 'createdBy', select: '_id email' });
+    const result = await Task.find({ createdBy : createdBy }).populate({ path: 'createdBy', select: '_id email' });
     res.status(200).json({ result });
   } catch (err) {
     res.status(500).json({ msg: err.message });

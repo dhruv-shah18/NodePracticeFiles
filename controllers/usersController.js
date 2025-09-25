@@ -26,7 +26,7 @@ const createNewUser = async (req, res) => {
             email,
             password : hashedPassword,
         });
-        const result = await sendWelcomeEmail(email, username);
+        await sendWelcomeEmail(email, username);
         res.status(201).json({ msg: "User created", user });
     } catch (err) {
         res.status(400).json({ msg: err.message });
