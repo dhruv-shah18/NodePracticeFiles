@@ -1,0 +1,93 @@
+###
+POST http://localhost:5000/newuser
+Content-Type: application/json
+
+{
+  "username": "Dean",
+  "role": "admin"
+}
+###
+
+###
+PUT http://localhost:5000/updateuser/1
+Content-Type: application/json
+
+{
+  "username": "Sam"
+}
+
+###
+
+###
+PUT http://localhost:5000/updategrades
+Content-Type: application/json
+
+{
+  "title" : "World"
+}
+###
+
+###
+POST http://localhost:5000/getgrades
+Content-Type: application/json
+
+{
+  "grt": 10
+}
+###
+
+###
+POST http://localhost:5000/inserttask
+Content-Type: application/json
+
+{
+  "title" : "World"
+}
+###
+
+###
+GET http://localhost:5000/api/tasks/alltasks
+Content-Type: application/json
+###
+
+###
+GET http://localhost:5000/imptasks
+Content-Type: application/json
+###
+
+###
+GET http://localhost:5000/prioritytask
+Content-Type: application/json
+###
+
+###
+GET http://localhost:5000/completedtask
+Content-Type: application/json
+###
+
+###
+GET http://localhost:5000/getbyIdTask/68d1383aeab239ac268b25b5
+Content-Type: application/json
+###
+
+###
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+  "username": "John",
+  "email": "john123@example.com",
+  "password": "password123"
+}
+###
+
+###
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+###
+
