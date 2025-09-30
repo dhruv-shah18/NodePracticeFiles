@@ -1,4 +1,5 @@
 const User = require("../models/User.model");
+const Tasks = require("../models/Task.model");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { sendWelcomeEmail } = require('../utils/utils');
@@ -66,8 +67,20 @@ const logoutUser = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await User.findByIdAndDelete(id);
+    await Tasks.deleteMany({ createdBy: id });
+    res.status(200).json({ msg: 'User deleted successfully', success: true });
+  } catch (err) {
+    res.status(500).json({ msg: 'Server error', error: err.message });
+  }
+};
+
 module.exports = {
     createNewUser,
     loginUser,
-    logoutUser
+    logoutUser, 
+    deleteUser
 };
