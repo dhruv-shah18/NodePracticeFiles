@@ -7,10 +7,19 @@ const {
   deleteTask,
   getAllCompletedTask,
   getAllPriorityTask,
-  getAllImpTask
+  getAllImpTask,
+  getAllUser,
+  getUserTaskSummary,
+  getUserById,
+  getAllSummary
 } = require('../controllers/taskController');
 
 router.get('/alltasks', getAllTasks);
+// router.get('/alltasks/:pagination/:page/:limit', getAllTasks); 
+router.get('/admin', getAllUser);
+router.get('/admin/summary', getUserTaskSummary);
+router.get('/admin/usertask/summary', getAllSummary);
+router.get('/admin/:id', getUserById);
 router.get('/imptasks', getAllImpTask);
 router.get('/prioritytask', getAllPriorityTask);
 router.get('/completedtask', getAllCompletedTask);
