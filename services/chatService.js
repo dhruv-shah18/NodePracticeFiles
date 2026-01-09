@@ -191,7 +191,7 @@ async function processUserMessage(userId, userMessage) {
 
   } catch (error) {
     console.error("Gemini Error:", error);
-    return "I'm sorry, I encountered an error while processing your request.";
+    return `I'm sorry, I encountered an error while processing your request. Error details: ${error.message}`;
   }
 }
 
