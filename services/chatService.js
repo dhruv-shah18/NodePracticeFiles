@@ -130,7 +130,7 @@ const tools = [
  * Process the user's message using Gemini with tools.
  */
 async function processUserMessage(userId, userMessage) {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", tools });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash", tools });
 
   const chat = model.startChat({
     history: [], // Logic for history can be added here if needed
