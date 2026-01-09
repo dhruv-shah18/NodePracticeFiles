@@ -6,6 +6,7 @@ const auth = require('./middleware/auth');
 const connectDB = require('./config/db');
 const taskRoutes = require('./routes/taskRoutes');
 const userRoutes = require('./routes/userRoutes');
+const chatRoutes = require('./routes/chatRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/api/tasks', taskRoutes);
 app.use('/api/tasks', auth, taskRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/chat', chatRoutes);
 
 // Default route
 app.get('/', (req, res) => {
